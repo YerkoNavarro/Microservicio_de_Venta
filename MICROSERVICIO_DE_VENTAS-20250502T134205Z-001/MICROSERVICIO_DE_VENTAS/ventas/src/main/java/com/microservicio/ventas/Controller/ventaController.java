@@ -9,6 +9,7 @@ import com.microservicio.ventas.service.VentaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -30,15 +31,16 @@ public class ventaController {
 
     
     @GetMapping("/{idVenta}")
-    public ResponseEntity<Venta> obtenerVenta(@PathVariable int idVenta){ {
+    public ResponseEntity<Venta> obtenerVenta(@PathVariable int idVenta){ 
+
         return ResponseEntity.ok(ventaService.traerVenta(idVenta));
+            
     }
     
-
-
-
-
-
-
+    
+    @DeleteMapping("/{idVenta}")
+    public ResponseEntity<String> eliminarVenta(@PathVariable int idVenta){ {
+        return ResponseEntity.ok(ventaService.eliminarVenta(idVenta));
     }
+}
 }

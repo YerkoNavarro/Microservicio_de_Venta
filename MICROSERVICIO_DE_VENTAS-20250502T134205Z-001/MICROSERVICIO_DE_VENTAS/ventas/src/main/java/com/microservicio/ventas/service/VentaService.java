@@ -2,6 +2,7 @@ package com.microservicio.ventas.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.microservicio.ventas.entity.VentaEntity;
 import com.microservicio.ventas.model.Venta;
@@ -46,6 +47,21 @@ public class VentaService {
         }
         return null;
 
+    }
+
+
+    @Transactional
+    public String eliminarVenta(int idV){
+        try {
+            VentaEntity v = ventasRepository.findByIdVenta(idV);
+            if (v != null){
+                ventasRepository.deleteByIdVenta(idV);
+                return "Venta eliminada";
+            }
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        return "No hay venta para eliminar con el id: " + idV;
     }
 
 }

@@ -3,18 +3,18 @@ package com.microservicio.ventas.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.microservicio.ventas.entity.ProductoEntity;
+import com.microservicio.ventas.entity.VentaEntity;
 
 
 
 @Repository
 
 
-public interface ventasRepository extends JpaRepository<ProductoEntity, Integer> {
+public interface ventasRepository extends JpaRepository<VentaEntity, Integer> {
 
-    ProductoEntity findByIdProducto(int idProducto);
-    boolean exexistsByIdProducto(int idProducto);
-    void deleteByIdProducto(int idProducto);
+    VentaEntity findByIdVenta(int idVenta);
+    boolean exexistsByIdVenta(int idVenta);
+    void deleteByIdVenta(int idVenta);
 
 
 }

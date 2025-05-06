@@ -2,7 +2,7 @@ package com.microservicio.ventas.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.microservicio.ventas.entity.*;
+
 import com.microservicio.ventas.entity.VentaEntity;
 import com.microservicio.ventas.model.Venta;
 import com.microservicio.ventas.repository.ventasRepository ;
@@ -29,16 +29,22 @@ public class VentaService {
     }
 
 
-    public void generarFactura(int idVenta){
+    public Venta traerVenta(int idVenta){
 
-        try { ventaEntity  v = ventasRepository.findByIdVenta(idVenta);
+        try { VentaEntity  v = ventasRepository.findByIdVenta(idVenta);
             if (v != null) {
-                System.out.println("Factura generada  ID Venta:" + v.getIdVenta()+ "ID Usuario:" + v.getIdUsuario() + "Productos totales:" + v.getProductos());  ;
+                Venta venta = new Venta();
+                venta.setIdVenta(v.getIdVenta());
+                venta.setIdUsuario(v.getIdUsuario());
+                venta.setProductos(v.getProductos());
+                return venta;
+            
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage()); 
         }
+        return null;
 
     }
 

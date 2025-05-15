@@ -2,9 +2,16 @@ package com.microservicio.ventas.entity;
 
 
 import jakarta.persistence.GenerationType;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +28,10 @@ public class VentaEntity {
     private int idVenta;
 
     private int idUsuario;
-    private String productos;
+
+    @CollectionTable(name = "venta_productos", 
+    joinColumns = @JoinColumn(name = "venta_id"))
+    @Column(name = "producto_id") 
+    private List<Integer> idProductos = new ArrayList();
 
 }

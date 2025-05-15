@@ -20,7 +20,7 @@ public class VentaService {
         try {
             nVenta.setIdVenta(v.getIdVenta());
             nVenta.setIdUsuario(v.getIdUsuario());
-            nVenta.setProductos(v.getProductos());
+            nVenta.setIdProductos(v.getIdProductos());
             ventasRepository.save(nVenta);
             return "Venta creada";
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class VentaService {
                 Venta venta = new Venta();
                 venta.setIdVenta(v.getIdVenta());
                 venta.setIdUsuario(v.getIdUsuario());
-                venta.setProductos(v.getProductos());
+                venta.setIdProductos(v.getIdProductos());
                 return venta;
             
             }

@@ -14,6 +14,7 @@ Conexión a base de datos en una instancia AWS con MySQL Server.
 - MySQL (AWS RDS o local)
 - IDE recomendado: IntelliJ IDEA o VS Code
 - (opcional)Postman
+- microservicio de cliente (para metodo "Factura") 
 
 ---
 
@@ -56,6 +57,20 @@ Los parámetros se deben enviar en formato JSON.
     0
   ]
 }
+```
+## Pruebas de los Endpoints
+
+Puedes probar todos los métodos disponibles del microservicio utilizando Swagger UI.
+
+### Accede desde el navegador:
+
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+Desde esta interfaz podrás realizar solicitudes `POST`, `GET`, `DELETE`, y visualizar la documentación generada automáticamente por Spring Boot.
+
+
+
+
 
 
 

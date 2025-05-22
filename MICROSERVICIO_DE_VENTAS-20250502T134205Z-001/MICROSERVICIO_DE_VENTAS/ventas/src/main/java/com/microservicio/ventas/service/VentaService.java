@@ -103,15 +103,5 @@ public class VentaService {
     
     
 
-    public String obtenerComentariosUsuario(int usuarioId){
-        String usuarioUrl = "http://localhost:8080/usuariodtoid/"+usuarioId;
-        String usuarioData = restTemplate.getForObject(usuarioUrl, String.class);
-
-        String postUrl = "https://jsonplaceholder.typicode.com/posts?userId="+usuarioId;
-        String postData = restTemplate.getForObject(postUrl, String.class);
-        //System.out.println(postData);
-
-        return "{\"usuario\":" + usuarioData + ",\"post\":" + postData + "}";
-
-    }
+    
 }

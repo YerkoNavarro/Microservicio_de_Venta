@@ -4,6 +4,17 @@ Proyecto en Java Spring Boot. Microservicio para la gestión de ventas.
 
 Conexión a base de datos en una instancia AWS con MySQL Server.
 
+
+---
+
+## Requisitos
+
+- Java 17 o superior
+- Maven
+- MySQL (AWS RDS o local)
+- IDE recomendado: IntelliJ IDEA o VS Code
+- (opcional)Postman
+
 ---
 
 ## Métodos utilizados
@@ -25,7 +36,26 @@ ENV_PASS=
 ENV_SERVER=
 ENV_PORT=
 ENV_DBNAME=
+```
+---
+## Formato de ingreso de datos
 
+Los parámetros se deben enviar en formato JSON.
+
+### Ejemplo de solicitud
+
+**Método:** `POST`  
+**Endpoint:** `/api/v1/ventas/`
+
+**Cuerpo de la solicitud:**
+```json
+{
+  "idVenta": 0,
+  "idUsuario": 0,
+  "idProductos": [
+    0
+  ]
+}
 
 
 

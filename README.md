@@ -32,11 +32,11 @@ Conexión a base de datos en una instancia AWS con MySQL Server.
 Para hacer la conexión a la base de datos se debe crear un archivo `.env` en la raíz principal con el siguiente formato:
 
 ```env
-ENV_USER=
-ENV_PASS=
-ENV_SERVER=
-ENV_PORT=
-ENV_DBNAME=
+ENV_USER=usuarioDeEjemplo
+ENV_PASS=contraseñaDeEjemplo
+ENV_SERVER=(server ip o localhost)
+ENV_PORT=3306(para Mysql)
+ENV_DBNAME=nombreBaseDeDatos
 ```
 ---
 ## Formato de ingreso de datos

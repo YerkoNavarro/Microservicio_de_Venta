@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.microservicio.ventas.model.Factura;
 import com.microservicio.ventas.model.Venta;
 import com.microservicio.ventas.service.VentaService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,4 +49,13 @@ public class ventaController {
         return ResponseEntity.ok(ventaService.eliminarVenta(idVenta));
     }
 }
+
+    @GetMapping("/{usuarioId}/{ventaId}")
+    public ResponseEntity<Factura> obtenerFactura(@PathVariable int usuarioId,
+                                                    @PathVariable int ventaId){ 
+
+        return ResponseEntity.ok(ventaService.generarFactura(usuarioId, ventaId));
+            
+    }
+
 }

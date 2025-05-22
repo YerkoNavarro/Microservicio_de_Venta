@@ -1,44 +1,30 @@
 # Microservicio_de_Venta
 
-proyecto de Java String boot,microservicio con gestion de Ventas 
+Proyecto en Java Spring Boot. Microservicio para la gestión de ventas.
 
-conexion a base de datos en una instancia aws con mysqlserver
+Conexión a base de datos en una instancia AWS con MySQL Server.
 
-#metodos utilizados
+---
 
-crearVenta: crea una venta en la base de datos
+## Métodos utilizados
 
-traerVenta: muestra una venta que se encuentra en la base de datos
+- **crearVenta**: Crea una venta en la base de datos.  
+- **traerVenta**: Muestra una venta que se encuentra en la base de datos.  
+- **eliminarVenta**: Elimina la venta de la base de datos, se debe proporcionar el ID.  
+- **Factura**: Se conecta con un microservicio externo de usuarios para traer los datos de usuario y mostrarlos en formato `String`.
 
-eliminarVenta: elimina la venta de la base de datos, se debe proporcionar el id
+---
 
-Factura: se conecta con un microservicio externo de usuarios para traer los datos de usuario y mostrarlos en formato String
+## Conexión a base de datos
 
+Para hacer la conexión a la base de datos se debe crear un archivo `.env` en la raíz principal con el siguiente formato:
 
-#base de datos
-
-para hacer la conexion a la base de datos se debe crear un archivo .env en la raiz principal, con el formato:
+```env
 ENV_USER=
 ENV_PASS=
-ENV_PASS= 
 ENV_SERVER=
 ENV_PORT=
 ENV_DBNAME=
-
-#formato de ingreso de datos
-
-los parametros se ingresan en formato tipo json ejemplo:
-
-POST
-/api/v1/ventas/
-
-{
-  "idVenta": 0,
-  "idUsuario": 0,
-  "idProductos": [
-    0
-  ]
-}
 
 
 

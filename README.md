@@ -7,9 +7,13 @@ conexion a base de datos en una instancia aws con mysqlserver
 #metodos utilizados
 
 crearVenta: crea una venta en la base de datos
+
 traerVenta: muestra una venta que se encuentra en la base de datos
+
 eliminarVenta: elimina la venta de la base de datos, se debe proporcionar el id
+
 Factura: se conecta con un microservicio externo de usuarios para traer los datos de usuario y mostrarlos en formato String
+
 
 #base de datos
 

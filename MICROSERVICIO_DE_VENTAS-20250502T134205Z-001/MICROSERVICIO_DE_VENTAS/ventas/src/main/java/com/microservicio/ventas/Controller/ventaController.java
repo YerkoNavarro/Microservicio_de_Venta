@@ -30,7 +30,14 @@ public class ventaController {
 
     @PostMapping("/")
     ResponseEntity<String> obtenerVenta(@RequestBody Venta venta){
-        return ResponseEntity.ok(ventaService.crearVenta(venta));
+       if(ventaService.crearVenta(venta)!="venta creada"){
+           return ResponseEntity.badRequest().body(ventaService.crearVenta(venta));
+       }
+       else{
+           return ResponseEntity.ok(ventaService.crearVenta(venta));
+       }
+
+        
     }
    
 
@@ -38,15 +45,24 @@ public class ventaController {
     @GetMapping("/{idVenta}")
     public ResponseEntity<Venta> obtenerVenta(@PathVariable int idVenta){ 
 
-        return ResponseEntity.ok(ventaService.traerVenta(idVenta));
+        if(ventaService.traerVenta(idVenta) != null){
+            return ResponseEntity.ok(ventaService.traerVenta(idVenta));
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
             
     }
 
     
     
     @DeleteMapping("/{idVenta}")
-    public ResponseEntity<String> eliminarVenta(@PathVariable int idVenta){ {
-        return ResponseEntity.ok(ventaService.eliminarVenta(idVenta));
+    public ResponseEntity<Boolean> eliminarVenta(@PathVariable int idVenta){ {
+        if((ventaService.eliminarVenta(idVenta))){
+            return ResponseEntity.ok(ventaService.eliminarVenta(idVenta));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }
 
@@ -54,7 +70,12 @@ public class ventaController {
     public ResponseEntity<Factura> obtenerFactura(@PathVariable int usuarioId,
                                                     @PathVariable int ventaId){ 
 
-        return ResponseEntity.ok(ventaService.generarFactura(usuarioId, ventaId));
+        if(ventaService.generarFactura(usuarioId, ventaId)!= null){
+            return ResponseEntity.ok(ventaService.generarFactura(usuarioId, ventaId));
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
             
     }
 

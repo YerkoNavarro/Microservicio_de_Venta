@@ -21,7 +21,12 @@ public class VentaService {
     
 
     public String crearVenta(Venta v){
+
         try {
+            if (ventasRepository.existsByIdVenta(v.getIdVenta())) {
+                return "venta ya existente";
+            } else {
+                }
             nVenta.setIdVenta(v.getIdVenta());
             nVenta.setIdUsuario(v.getIdUsuario());
             nVenta.setIdProductos(v.getIdProductos());
@@ -31,6 +36,7 @@ public class VentaService {
             return e.getMessage();
         }
 
+            
     }
 
 
@@ -55,18 +61,24 @@ public class VentaService {
 
 
     @Transactional
-    public String eliminarVenta(int idV){
+    public boolean eliminarVenta(int idV){
         try {
-            VentaEntity v = ventasRepository.findByIdVenta(idV);
-            
-            if (v != null){
+             VentaEntity v = ventasRepository.findByIdVenta(idV);
+
+              if (v != null){
                 ventasRepository.deleteByIdVenta(idV);
-                return "Venta eliminada";
-            }
+                return true;
+              }else{
+                return false;
+              }
         } catch (Exception e) {
-            return e.getMessage();
+            return false;
         }
-        return "No hay venta para eliminar con el id: " + idV;
+           
+            
+           
+           
+        
     }
 
 
